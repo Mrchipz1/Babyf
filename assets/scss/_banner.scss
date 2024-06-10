@@ -1,0 +1,305 @@
+.banner {
+    position: relative;
+    z-index: 1;
+    padding-top: 250px;
+    overflow-x: hidden;
+    @include lg {
+        padding-top: 180px;
+    }
+    @include md {
+        padding-top: 150px;
+    }
+    @include sm {
+        padding-top: 115px;
+        padding-bottom: 200px;
+    }
+    &::after {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-image: url(../img/herobg.png);
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: cover;
+        opacity: .4;
+        @include sm {
+            top: 90px;
+            width: 100%;
+            height: 420px;
+            // background-image: url(../img/banner-style-2-forMobile.png);            
+            background-size: cover;
+        }
+    }
+    &-wrap {
+        padding-bottom: 94px;
+        position: relative;
+        z-index: 1;
+        @include lg {
+            padding-bottom: 80px;
+        }
+        @include mmd {
+            padding-bottom: 112px;
+        }
+        @include sm {
+            padding-bottom: 135px !important;
+            padding: 0 20px;
+        }
+        @include ssm {
+            padding: 0;
+            padding-bottom: 120px !important;
+        }
+        &::after {
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, 0);
+            content: '';
+            width: 351px;
+            height: 412px;
+            border-radius: 100%;
+            background-color: rgb(251, 223, 143, 40%);
+            filter: blur(50px);
+        }
+    }
+    &-img {
+        margin-bottom: -10px;
+        margin-left: -20px;
+        position: relative;
+        z-index: 1;
+        @include sm {
+            margin-bottom: 0;
+        }
+        &::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            @include bgShape;
+        }
+    }
+    &-logo {
+        margin-bottom: 48px;
+        @include lg {
+            margin-bottom: 40px;
+        }
+        @include mmd {
+            margin-bottom: 35px;
+        }
+    }
+    &-input {
+        position: relative;
+        z-index: 1;
+        background-color: $primary;
+        border: 1px solid $border;
+        border-radius: 62px;
+        padding: 6px 8px;
+        height: 78px;
+        color: $black;
+        @include lg {
+            height: 75px;
+        }
+        @include mmd {
+            height: 70px;
+        }
+        @include sm {
+            padding: 3px 4px;
+            height: 50px;
+        }
+        & input,
+        & p {
+            border: 1px solid $border;
+            border-radius: 62px;
+            background-color: #FFF5DA;
+            @include bgShape();
+            width: 100%;
+            height: 100%;
+            font-size: 14px;
+            letter-spacing: 1.68px;
+            text-transform: uppercase;
+            padding: 10px 24px;
+            @include lg {
+                font-size: 12px;
+            }
+            @include mmd {
+                font-size: 12px;
+                padding: 10px 20px;
+            }
+            @include sm {
+                font-size: 9px;
+            }
+            @include ssm {
+                padding: 10px;
+            }
+        }
+        & .copy-btn {
+            font-size: 20px;
+            position: relative;
+            z-index: 1;
+            // & span {
+            //     background-color: $primary;
+            //     border-radius: 100px;
+            //     color: $black;
+            //     padding: 6px 10px;
+            //     position: absolute;
+            //     left: 50%;
+            //     transform: translateX(-50%);
+            //     bottom: 100%;
+            //     text-align: center;
+            //     font-size: 10px;
+            //     font-weight: 400;
+            //     min-width: 100%;
+            //     width: max-content;
+            //     margin-bottom: 8px;
+            //     text-transform: capitalize;
+            //     box-shadow: 0px 0px 15px rgba($color: $white, $alpha: .30);
+            //     @include sm {
+            //         margin-left: -14px;
+            //     }
+            //     // &::before {
+            //     //     content: "";
+            //     //     border: 8px solid transparent;
+            //     //     border-top-color: $primary;
+            //     //     position: absolute;
+            //     //     top: 100%;
+            //     //     left: 50%;
+            //     //     transform: translateX(-50%);
+            //     //     margin-top: -4px;
+            //     //     @include sm {
+            //     //         margin-left: 12px;
+            //     //     }
+            //     // }
+            // }
+            
+        }
+    }
+    &-brand {
+        position: absolute;
+        bottom: 140px;
+        right: 88px;
+        text-align: center;
+        @include lg {
+            right: 70px;
+            bottom: 100px;
+        }
+        @include mmd {
+            right: 70px;
+            bottom: 100px;
+        }
+        @include sm {
+            bottom: 100px;
+            right: auto;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        & h4 {
+            font-size: 12px;
+            text-shadow: 2px 2px 0px $black;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        &-logo {
+            width: 80px;
+            margin: auto;
+        }
+    }
+    &-border {
+        position: relative;
+        z-index: 1;
+        & .border {
+            &-1 {
+                padding: 6px 0;
+                background-color: #FD4B52;
+                border: 2px solid #994245;
+                display: flex;
+                overflow: hidden;
+                align-items: center;
+                justify-content: center;
+                @include bgShape;
+                @include sm {
+                    transform: rotate(-3deg);
+                    border: none !important;
+                }
+                
+                & img {
+                    max-width: none;
+                    width: 247px;
+                    height: 57px;
+                    @include lg {
+                        width: 190px;
+                        height: auto;
+                    }
+                    @include md {
+                        width: 190px;
+                        height: auto;
+                    }
+                    @include sm {
+                        width: 80px;
+                        height: auto;
+                    }
+                }
+            }
+            &-2 {
+                position: absolute;
+                z-index: 2;
+                top: 0;
+                left: -112px;
+                width: 110%;
+                padding: 13px 0;
+                transform: rotate(5deg);
+                background-color: rgb(255, 255, 255, 60%);
+                backdrop-filter: blur(10px);
+                @include bgShape();
+                display: flex;
+                overflow: hidden;
+                align-items: center;
+                justify-content: center;
+                @include xl {
+                    transform: rotate(7deg);
+                }
+                @include lg {
+                    left: -30px;
+                    transform: rotate(7deg);
+                }
+                @include mmd {
+                    padding: 6px 0;
+                    left: -30px;
+                    transform: rotate(7deg);
+                }
+                & img {
+                    max-width: none;
+                    width: 247px;
+                    height: 57px;
+                    @include lg {
+                        width: 190px;
+                        height: auto;
+                    }
+                    @include md {
+                        width: 190px;
+                        height: auto;
+                    }
+                    @include sm {
+                        width: 80px;
+                        height: auto;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.js-marquee {
+    display: flex;
+    gap: 40px;
+}
+
+.banner-input .copy-btn img {
+    width: 24px;
+}

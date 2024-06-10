@@ -1,0 +1,211 @@
+body {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: calc(26px/16px);
+    color: $text;
+    font-family: $font-1;
+    background-color: $body;
+    overflow-x: hidden;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+    &::after {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: '';
+        background-image: url(../img/body-bg.png);
+    }
+}
+::root{
+    overflow-x: hidden;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font-1;
+    color: $heading;
+    font-weight: 500;
+    margin: 0 0 10px;
+}
+
+p {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+span {
+    display: inline-block;
+}
+
+ul,
+ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none !important;
+    @include transition;
+}
+
+input,
+textarea,
+button {
+    padding: 10px 25px;
+    border: 1px solid $border;
+    outline: none;
+    @include transition;
+    &:focus {
+        outline: none;
+        border-color: $primary;
+    }
+}
+
+
+/*Hide number spin button*/
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.common {
+    &-svg {
+        display: inline-block;
+        height: 1em;
+        overflow: visible;
+        vertical-align: -0.125em;
+    }
+    &-row {
+        --bs-gutter-x: 32px;
+        margin-bottom: calc(var(--bs-gutter-x) * -1);
+        @include mmd {
+            --bs-gutter-x: 24px;
+        }
+        &>div {
+            margin-bottom: var(--bs-gutter-x);
+        }
+    }
+    &-padding {
+        --padding-y: 120px;
+        --padding-x: 0;
+        padding: var(--padding-y) var(--padding-x);
+        @include xl {
+            --padding-y: 100px;
+        }
+        @include lg {
+            --padding-y: 100px;
+        }
+        @include md {
+            --padding-y: 80px;
+        }
+        @include sm {
+            --padding-y: 60px;
+        }
+        &-top {
+            padding-top: var(--padding-y);
+        }
+    }
+    &-title {
+        margin-bottom: 60px;
+        @media (min-width: 1440px) {
+            padding: 0 4%;
+        }
+        @include md {
+            margin-bottom: 40px;
+        }
+        @include sm {
+            margin-bottom: 30px;
+        }
+        & h2 {
+            @include font-68;
+        }
+        & p {
+            @include font-20;
+        }
+    }
+}
+
+.btn {
+    --bs-btn-padding-x: 20px;
+    --bs-btn-padding-y: 17px;
+    min-width: 162px;
+    --bs-btn-font-size: 16px;
+    --bs-btn-font-width: 700;
+    border: 2px solid #FFAEB1;
+    background-color: #FFF5DA !important;
+    color: #EA353C !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0px 4px 0px $black;
+    @include bgShape;
+    // @include sm {
+    //     --bs-btn-font-size: 12px;
+    //     min-width: min-content;
+    //     --bs-btn-padding-x: 16px;
+    //     --bs-btn-padding-y: 14px;
+    // }
+    &:hover {
+        box-shadow: 0 0 0;
+    }
+}
+
+.container {
+    @media only screen and (min-width: 1500px) {
+        max-width: 1200px;
+    }
+    @include sm {
+        --bs-gutter-x: 60px;
+    }
+    @include ssm {
+        --bs-gutter-x: 20px;
+    }
+}
+
+@keyframes upDown {
+    0% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes formLeft {
+    0% {
+        transform: translateX(50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.marque-area{
+    overflow: hidden;
+    padding-block: 30px;
+    border-top: 1px solid #303033;
+    border-bottom: 1px solid #303033;
+}

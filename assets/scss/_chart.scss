@@ -1,0 +1,624 @@
+.chart {
+    padding-top: 157px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    @include lg {
+        padding-top: 138px;
+    }
+    @include mmd {
+        padding-top: 138px;
+    }
+    @include sm {
+        padding-top: 96px;
+        overflow: hidden;
+    }
+    &::after {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        content: '';
+        width: 100%;
+        height: 200px;
+        background-image: url(../img/chart-style-1.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 211px;
+        @include lg {
+            background-size: cover;
+        }
+        @include mmd {
+            background-size: cover;
+        }
+        @include sm {
+            height: 130px;
+        }
+    }
+    &::before {
+        position: absolute;
+        z-index: 1;
+        top: 128px;
+        right: 130px;
+        content: '';
+        width: 93px;
+        height: 99px;
+        background-image: url(../img/chart-style-2.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        animation: upDown 3s ease-in-out infinite;
+        @include lg {
+            right: 75px;
+        }
+        @include mmd {
+            right: 45px;
+            width: 75px;
+            height: 81px;
+        }
+        @include sm {
+            display: none;
+        }
+    }
+    & .container {
+        position: relative;
+        // z-index: 1;
+        &::before {
+            content: "";
+            width: 200%;
+            height: 100%;
+            position: absolute;
+            bottom: 80%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            @include bgShape();
+        }
+    }
+    &-title {
+        position: relative;
+        &::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            @include bgShape();
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+        & h1 {
+            @include font-64;
+            margin-bottom: 50px;
+            text-shadow: 12px 12px 0 $black;
+            -webkit-text-stroke: 3px #000;
+            @include lg {
+                text-shadow: 7px 7px 0 #000;
+                -webkit-text-stroke: 3px #000;
+            }
+            @include mmd {
+                text-shadow: 7px 7px 0 #000;
+                -webkit-text-stroke: 3px #000;
+            }
+            @include sm {
+                text-shadow: 4px 4px 0 #000;
+                -webkit-text-stroke: 2px #000;
+            }
+        }
+        &-cost {
+            padding: 16px 31px;
+            max-width: 475px;
+            border-radius: 16px;
+            margin-bottom: 60px !important;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            background-color: $primary;
+            box-shadow: 2px 3px 0 $black;
+            @include sm {
+                max-width: 410px;
+            }
+            & span {
+                @include font-18;
+                color: $black;
+            }
+            & .icon {
+                padding: 0 46px;
+                position: absolute;
+                z-index: 2;
+                left: 50%;
+                top: -9px;
+                transform: translate(-61%, 0);
+            }
+        }
+    }
+    &-inner {
+        position: relative;
+        z-index: 1;
+        padding-bottom: 160px;
+        column-gap: 30px;
+        @include xl {
+            column-gap: 18px;
+        }
+        @include lg {
+            padding-bottom: 112px;
+        }
+        @include md {
+            padding-bottom: 112px;
+            scale: .7;
+        }
+    }
+    &-details {
+        & span {
+            @include font-18;
+            color: $black;
+            width: 225px;
+            height: 74px;
+            text-align: center;
+            padding: 18px 0;
+            position: absolute;
+            z-index: 2;
+        }
+        & p {
+            font-size: 14px;
+            line-height: 35px;
+            text-shadow: 0px 4px 2px $black;
+            @include lg {
+                text-shadow: 0px 2px 3px #000;
+                font-size: 12px;
+                line-height: 29px;
+            }
+            @include mmd {
+                text-shadow: 0px 2px 3px #000;
+                font-size: 12px;
+                line-height: 29px;
+            }
+            @include sm {
+                padding: 0px 35px;
+                text-align: center;
+            }
+        }
+    }
+    // & .chart-1 {
+    //     margin-top: 306px;
+    //     @include lg {
+    //         margin-top: 230px;
+    //     }
+    //     @include md {
+    //         margin-top: 180px;
+    //     }
+    //     & span {
+    //         background-image: url(../img/chart-percentage-bg.png);
+    //         background-repeat: no-repeat;
+    //         background-position: center;
+    //         background-size: contain;
+    //         top: 203px;
+    //         left: 163px;
+    //         transform: rotate(-14deg);
+    //         @include xxl {
+    //             left: 227px;
+    //         }
+    //         @include xl {
+    //             left: 137px;
+    //         }
+    //         @include lg {
+    //             top: 138px;
+    //             left: 102px;
+    //             transform: rotate(-10deg);
+    //         }
+    //         @include md {
+    //             top: 79px;
+    //             left: 50px;
+    //             width: 190px;
+    //             height: 68px;
+    //         }
+    //         @include sm {
+    //             display: none;
+    //         }
+    //     }
+    // }
+    // & .chart-2 {
+    //     margin-top: 120px;
+    //     @include sm {
+    //         margin-top: 20px;
+    //     }
+    //     & span {
+    //         background-image: url(../img/chart-percentage-bg-2.png);
+    //         background-repeat: no-repeat;
+    //         background-position: center;
+    //         background-size: contain;
+    //         top: 18px;
+    //         right: 206px;
+    //         transform: rotate(-14deg);
+    //         @include xxl {
+    //             top: 14px;
+    //             right: 268px;
+    //         }
+    //         @include xl {
+    //             right: 175px;
+    //         }
+    //         @include lg {
+    //             top: 0px;
+    //             right: 124px;
+    //         }
+    //         @include mmd {
+    //             top: 0px;
+    //             right: 75px;
+    //             width: 190px;
+    //             height: 68px;
+    //         }
+    //         @include sm {
+    //             width: 154px;
+    //             transform: rotate(-28deg);
+    //             top: 48px;
+    //             right: 14px;
+    //         }
+    //         @include ssm {
+    //             top: 34px;
+    //             right: -9px;
+    //         }
+    //     }
+    // }
+    &-img {
+        --img: 440px;
+        @include sm {
+            --img: 296px;
+            width: var(--img);
+            margin: 0 auto;
+        }
+        & .main {
+            max-width: none;
+            width: var(--img);
+            height: var(--img);
+            & img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+            & .chart-info {
+                & span {
+                    right: -40px;
+                    @include sm {
+                        right: auto;
+                    }
+                }
+            }
+        }
+        & img {
+            @include transition;
+            scale: 1;
+            cursor: pointer;
+            &:hover {
+                scale: 1.1;
+            }
+        }
+    }
+    &-item-img {
+        &:hover {
+            & .chart-info {
+                @include show;
+            }
+        }
+    }
+    &-info {
+        max-width: 370px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: max-content;
+        right: 100%;
+        margin-right: 30px;
+        @include hidden;
+        @include transition;
+        @include lg {
+            max-width: 220px;
+        }
+        @include md {
+            max-width: 250px;
+        }
+        @include sm {
+            left: 0;
+            right: auto;
+            top: 100%;
+            margin-top: 60px;
+            max-width: 100%;
+            pointer-events: none;
+        }
+        & span {
+            @include font-18;
+            color: $black;
+            width: 225px;
+            height: 74px;
+            text-align: center;
+            padding: 18px 0;
+            background-image: url(../img/chart-percentage-bg.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            transform: rotate(-14deg);
+            position: relative;
+            @include lg {
+                transform: rotate(-10deg);
+            }
+            @include md {
+                width: 190px;
+                height: 68px;
+            }
+            @include sm {
+                transform: rotate(0);
+                margin-right: auto !important;
+                margin-bottom: 0 !important;
+                font-size: 8px;
+                line-height: 19px;
+                width: 110px;
+                height: 56px;
+            }
+        }
+        & p {
+            font-size: 14px;
+            line-height: 35px;
+            text-shadow: 0px 4px 2px $black;
+            @include lg {
+                text-shadow: 0px 2px 3px #000;
+                font-size: 12px;
+                line-height: 29px;
+            }
+            @include md {
+                text-shadow: 0px 2px 3px #000;
+                font-size: 12px;
+                line-height: 29px;
+            }
+            @include sm {
+                padding: 0px 35px;
+                text-align: center;
+                font-size: 8px;
+                line-height: 19px;
+                text-shadow: 0px 4px 1.6px rgba($color: $black, $alpha: .90);
+            }
+        }
+    }
+    &-slice {
+        & img {
+            @include sm {
+                width: 65%;
+            }
+        }
+        & .chart-item-img {
+            @include transition;
+            &:nth-child(1) {
+                // transform: translate(0, 33px);
+                transform: translate(20px, 140px);
+                @include sm {
+                    margin-top: -44px;
+                    margin-right: 2px;
+                }
+                &:hover {
+                    // transform: translate(10px, 24px);
+                    transform: translate(40px, 138px);
+                    @include sm {
+                        transform: translate(24px, 138px);
+                    }
+                }
+                & .chart-info {
+                    margin-left: -20px;
+                    @include sm {
+                        margin-left: -60px;
+                        margin-top: 174px !important;
+                        max-width: 300px;
+                    }
+                }
+            }
+            // &:nth-child(2) {
+            //     transform: translate(17px, 138px);
+            //     @include sm {
+            //         margin-top: -42px;
+            //         margin-right: 13px;
+            //     }
+            //     &:hover {
+            //         transform: translate(27px, 134px);
+            //     }
+            //     & .chart-info {
+            //         margin-left: -10px;
+            //         margin-top: 15px;
+            //         @include sm {
+            //             margin-left: -54px;
+            //             margin-top: 214px !important;
+            //             max-width: 300px;
+            //         }
+            //     }
+            // }
+            // &:nth-child(3) {
+            //     transform: translate(18px, 206px);
+            //     @include sm {
+            //         margin-top: -66px;
+            //         margin-right: 11px;
+            //     }
+            //     &:hover {
+            //         transform: translate(29px, 208px);
+            //     }
+            //     & .chart-info {
+            //         margin-left: -10px;
+            //         margin-top: 26px;
+            //         @include sm {
+            //             margin-left: -56px;
+            //             margin-top: 176px !important;
+            //             max-width: 300px;
+            //         }
+            //     }
+            // }
+            & .chart-info {
+                right: auto;
+                left: 100%;
+                @include sm {
+                    right: 0;
+                    left: -40px;
+                    top: 100%;
+                    margin-top: 184px !important;
+                    max-width: 100%;
+                    margin-right: 0;
+                }
+                & span {
+                    background-image: url(../img/chart-percentage-bg-2.png);
+                    transform: rotate(-14deg);
+                    @include sm {
+                        transform: rotate(0);
+                        margin: auto !important;
+                    }
+                }
+            }
+        }
+    }
+    &-wrap {
+        // background-color: $primary;
+        background-image: url(../img/chart-wrap-bg.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        z-index: 1;
+        &::after {
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            content: '';
+            width: 100%;
+            height: 25px;
+            background-image: url(../img/chart-bottom-style.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% 25px;
+            @include mmd {
+                background-size: cover;
+            }
+        }
+        &::before {
+            content: "";
+            width: 100%;
+            height: 110%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            @include bgShape;
+            z-index: 2;
+        }
+    }
+    &-bottom {
+        & .total-supply {
+            width: 576px;
+            height: 128px;
+            text-align: center;
+            background-image: url(../img/chart-total-bg.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% 100%;
+            padding: 42px 0;
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            @include lg {
+                padding: 38px 0;
+                width: 528px;
+                height: 116px;
+            }
+            @include md {
+                padding: 30px 0;
+                width: 460px;
+                height: 99px;
+                top: -40px;
+            }
+            @include sm {
+                padding: 26px 0;
+                width: 396px;
+                height: 89px;
+                top: -30px;
+            }
+            @include sm {
+                padding: 20px 0;
+                width: 344px;
+                height: 76px;
+            }
+            & span {
+                color: $black;
+                font-size: 22px;
+                line-height: 150%;
+                @include lg {
+                    font-size: 20px;
+                }
+                @include md {
+                    font-size: 18px;
+                }
+                @include sm {
+                    font-size: 14px;
+                }
+            }
+        }
+        &-list {
+            padding-top: 146px;
+            padding-bottom: 50px;
+            @include lg {
+                padding-top: 120px;
+                padding-bottom: 40px;
+            }
+            @include mmd {
+                padding-top: 120px;
+                padding-bottom: 60px;
+            }
+            @include ssm {
+                padding-top: 76px;
+                padding-bottom: 50px;
+            }
+            & h2 {
+                font-size: 20px;
+                line-height: 150%;
+                color: $black;
+                margin-bottom: 40px;
+                // @include lg {
+                //     font-size: 20px;
+                // }
+                // @include mmd {
+                //     font-size: 18px;
+                // }
+                @include sm {
+                    line-height: 220%;
+                    padding: 0 50px;
+                }
+                @include ssm {
+                    padding: 0 14px;
+                    margin-bottom: 28px;
+                }
+            }
+            &-img {
+                margin-bottom: 24px;
+            }
+        }
+        &-item {
+            &-single {
+                &:not(:last-child) {
+                    margin-right: 92px;
+                    @include sm {
+                        margin-right: 36px;
+                    }
+                }
+                & img {
+                    margin-bottom: 16px;
+                    height: 80px;
+                    object-fit: contain;
+                    @include sm {
+                        height: 60px;
+                    }
+                }
+                & p {
+                    font-size: 10px;
+                    line-height: 150%;
+                    color: $black;
+                }
+            }
+        }
+    }
+}
+
+#root {
+    overflow: hidden;
+}

@@ -1,0 +1,68 @@
+.footer {
+    &-img {
+        height: 56%;
+        right: 20px;
+        width: auto;
+        max-width: 114px;
+        // @include xxxl {
+        //     height: 100%;
+        // }
+        @include sm {
+            height: 18%;
+            right: 10px;
+        }
+    }
+    & .title {
+        @include mmd {
+            display: none !important;
+        }
+    }
+    & .heading {
+        &-wrap {
+            @include sm {
+                justify-content: center !important;
+                gap: 24px;
+                &>* {
+                    width: 100%;
+                    flex: 0 0 auto;
+                    text-align: center;
+                    justify-content: center !important;
+                }
+            }
+        }
+        &-menu {
+            @include sm {
+                margin: 0 !important;
+            }
+            @include md {
+                display: block !important;
+                & ul {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                }
+            }
+            @include sm {
+                display: block !important;
+            }
+        }
+        &-link {
+            @include sm {
+                text-align: center;
+                font-size: 14px;
+            }
+        }
+    }
+    &-copy {
+        --bs-border-opacity: .1;
+        font-size: 12px;
+        line-height: 2;
+        color: #E9DDDD;
+        @include sm {
+            padding: 0 20%;
+        }
+        @media (max-width:414px) {
+            padding: 0 15%;
+        }
+    }
+}

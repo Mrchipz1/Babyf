@@ -1,0 +1,228 @@
+.about {
+    padding-top: 172px;
+    padding-bottom: 190px;
+    position: relative;
+    z-index: 1;
+    @include xl {
+        padding-bottom: 150px;
+    }
+    @include lg {
+        padding-bottom: 100px;
+        padding-top: 156px;
+    }
+    @include mmd {
+        padding-top: 100px;
+        padding-bottom: 80px;
+        overflow: hidden;
+    }
+    @include sm {
+        padding-bottom: 110px;
+        padding-top: 0;
+    }
+    &::before {
+        position: absolute;
+        top: 150px;
+        left: -10px;
+        content: '';
+        width: 152px;
+        height: 173px;
+        background-image: url(../img/about-style-1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    &::after {
+        display: block;
+        position: absolute;
+        top: 196px;
+        right: 0px;
+        content: '';
+        width: 614px;
+        height: 557px;
+        background-image: url(../img/about-img.png);
+        background-size: contain;
+        background-position: right;
+        background-repeat: no-repeat;
+        animation: formLeft 2s ease-in-out forwards;
+        @include xl {
+            width: 503px;
+            height: 456px;
+        }
+        @include lg {
+            width: 411px;
+            height: 372px;
+            top: 176px;
+        }
+        @include md {
+            width: 320px;
+            height: 290px;
+            top: 170px;
+        }
+        @include sm {
+            position: unset;
+            width: 100%;
+            height: 380px;
+            text-align: right;
+            margin-top: 120px;
+            background-position: end;
+        }
+    }
+    &-wrap {
+        position: relative;
+        z-index: 1;
+        &::after {
+            position: absolute;
+            top: -92px;
+            right: 260px;
+            content: '';
+            width: 130px;
+            height: 122px;
+            background-image: url(../img/about-style-2.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: upDown 3s ease-in-out infinite;
+            @include xl {
+                right: 196px;
+            }
+            @include lg {
+                right: 155px;
+            }
+            @include mmd {
+                top: -52px;
+                right: 98px;
+                width: 110px;
+                height: 103px;
+            }
+            @include sm {
+                top: auto;
+            }
+        }
+    }
+    &-content {
+        position: relative;
+        z-index: 1;
+        &::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            @include bgShape();
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        & h1 {
+            @include font-64;
+            margin-bottom: 75px;
+            text-shadow: 12px 12px 0 $black;
+            -webkit-text-stroke: 3px #000;
+            line-height: 2.1;
+            @include xl {
+                margin-bottom: 50px;
+            }
+            @include lg {
+                margin-bottom: 40px;
+                text-shadow: 7px 7px 0 #000;
+                -webkit-text-stroke: 3px #000;
+            }
+            @include mmd {
+                margin-bottom: 40px;
+                text-shadow: 7px 7px 0 #000;
+                -webkit-text-stroke: 3px #000;
+            }
+            @include sm {
+                text-shadow: 4px 4px 0 #000;
+                -webkit-text-stroke: 2px #000;
+                margin-bottom: 30px;
+            }
+            @include ssm {
+                margin-bottom: 30px;
+            }
+        }
+        & p {
+            @include font-18;
+            margin-bottom: 50px;
+            padding-right: 242px;
+            line-height: 45px;
+            text-shadow: 0px 4px 2px $black;
+            @include lg {
+                text-shadow: 0px 2px 3px #000;
+            }
+            @include mmd {
+                padding-right: 160px;
+                text-shadow: 0px 2px 3px #000;
+            }
+            @include sm {
+                font-size: 12px;
+                padding-right: 0px;
+                line-height: 40px;
+            }
+        }
+    }
+    &-social {
+        .heading & {
+            @include sm {
+                display: none;
+            }
+        }
+        & ul {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 32px;
+            @include lg {
+                gap: 24px;
+            }
+            @include md {
+                gap: 26px;
+            }
+            @include sm {
+                gap: 24px;
+            }
+            .heading-wrap & {
+                column-gap: 22px;
+            }
+            & li {
+                & a {
+                    @include bgShape();
+                    border: 1px solid $border;
+                    border-radius: 12px;
+                    padding: 6px 8px;
+                    display: inline-block;
+                    --shadow: 6px;
+                    box-shadow: var(--shadow) var(--shadow) 0 $black;
+                    .heading-wrap & {
+                        --shadow: 4px;
+                    }
+                    &:hover {
+                        background-color: $primary !important;
+                    }
+                    & span {
+                        display: inline-block;
+                        --size: 58px;
+                        width: var(--size);
+                        height: var(--size);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border: 1px solid $border;
+                        border-radius: 12px;
+                        .heading-wrap & {
+                            --size: 42px;
+                        }
+                        @include sm {
+                            --size: 44px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-img {
+        @include sm {
+            min-width: 462px;
+        }
+        @include ssm {
+            min-width: unset;
+        }
+    }
+}

@@ -1,0 +1,187 @@
+@keyframes headerAnimation {
+    0% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.heading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9;
+    padding: var(--bs-navbar-padding-y) 0;
+    --bs-navbar-padding-y: 30px;
+    border: 2px solid rgba($color: $black, $alpha: .08);
+    @include lg {
+        --bs-navbar-padding-y: 26px;
+    }
+    @include md {
+        --bs-navbar-padding-y: 24px;
+    }
+    @include sm {
+        --bs-navbar-padding-y: 20px;
+    }
+    &.position-fixed {
+        animation: headerAnimation .5s linear;
+        background-color: rgba($color: #E2585C, $alpha: .84);
+        border-bottom: 2px solid rgba($color: $black, $alpha: .08);
+        backdrop-filter: blur(7px);
+        --bs-navbar-padding-y: 24px;
+        @include md {
+            --bs-navbar-padding-y: 20px;
+        }
+        @include sm {
+            --bs-navbar-padding-y: 1rem;
+        }
+    }
+    &-wrap {
+        .footer & {
+            padding: 32px 0;
+            @include mmd {
+                padding: 28px 0;
+            }
+        }
+    }
+    &-menu {
+        .footer & {
+            margin-left: auto;
+            margin-right: 5%;
+        }
+    }
+    &-menu:not(.footer .heading-menu) {
+        & .title {
+            margin-bottom: 32px;
+            @include sm {
+                margin-bottom: 24px;
+            }
+        }
+        & .heading-actions {
+            @include mmd {
+                margin-top: 32px;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            @include sm {
+                margin-top: 26px;
+            }
+        }
+    }
+    &-link {
+        font-size: 16px;
+        line-height: normal;
+        color: #D3CCD6;
+        font-weight: 300;
+        font-family: $font-1;
+        display: block;
+        padding: 0 20px;
+        text-shadow: 0 4px 0 $black;
+        cursor: pointer;
+        @include lg {
+            padding: 0 12px;
+        }
+        @include mmd {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        &:hover,
+        &.active {
+            color: $white;
+        }
+    }
+    &-actions {
+        grid-gap: 12px;
+        @include sm {
+            grid-gap: 8px;
+        }
+    }
+    &-toggler {
+        --btn-padding-x: 4px;
+        --btn-padding-y: 5px;
+        padding: var(--btn-padding-y) var(--btn-padding-x);
+        border: none;
+        background-color: transparent;
+        color: $heading;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        & svg {
+            --width: 40px;
+            width: var(--width);
+            height: var(--width);
+            @include sm {
+                --width: 32px;
+            }
+            @include ssm {
+                --width: 26px;
+            }
+        }
+    }
+    &-offCanvas {
+        padding-top: 80px;
+        background-color: #EB4C52;
+        height: calc(100vh - 180px);
+        min-height: calc(100vh - 80px);
+        padding-top: 24px;
+        border-top: 1px solid #E13E44;
+        transform: translateY(300%);
+        transition: all .3s ease-in-out;
+        pointer-events: none;
+        background-image: url(../img/menu-bg.png);
+        background-size: cover;
+        background-position: center center;
+        opacity: 0;
+        visibility: hidden;
+        &.show {
+            transform: translate(0, 0);
+            pointer-events: auto;
+            transition: all .3s ease-in-out;
+            opacity: 1;
+            visibility: visible; 
+        }
+        & .img {
+            height: 50%;
+            margin-bottom: 15%;
+            @media (max-width: 390px) {
+                height: 54%;
+            }
+        }
+    }
+}
+.heading-offCanvas {
+    transform: translateY(300%);
+    transition: all .3s ease-in-out;
+}
+
+.heading-offCanvas.show {
+    transform: translateY(0);
+    transition: all .3s ease-in-out;
+    opacity: 1;
+    visibility: visible; 
+}
+.logo {
+    width: 280px;
+    position: relative;
+    z-index: 1;
+    @include lg {
+        width: 200px;
+    }
+    @include md {
+        width: 180px;
+    }
+    @include sm {
+        width: 105px;
+    }
+    &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        @include bgShape();
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+}
